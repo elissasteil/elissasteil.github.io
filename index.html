@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +10,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #fff;
-            color: #000000;
+            color: #000;
         }
         header {
             background-color: #539665;
@@ -21,7 +23,7 @@
         h1 {
             text-align: left;
             margin: 0;
-            font-size: 30px
+            font-size: 30px;
         }
         .tab-container {
             position: absolute;
@@ -31,7 +33,7 @@
         .tab {
             display: inline-block;
             background-color: #498258;
-            color: #ffffff;
+            color: #fff;
             padding: 10px 20px;
             margin-right: 10px;
             border: none;
@@ -42,7 +44,7 @@
             background-color: #539665;
         }
         section {
-            padding: 50px;
+            padding: 20px;
         }
         footer {
             background-color: #539665;
@@ -52,39 +54,55 @@
             bottom: 0;
             width: 100%;
         }
+        .masonry {
+            column-count: 3;
+            column-gap: 2rem;
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            border: 1px solid #000;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border: 1px solid #050605;
+        }
+        .modal-content img {
+            width: 100%;
+        }
         .work-item {
             display: flex;
-            margin-bottom: 100px; /* Adjust spacing between work items */
+            margin-bottom: 100px;
         }
         .image-with-description {
             display: flex;
             align-items: center;
         }
         .work-item img {
-            margin-right: 20px; /* Adjust spacing between image and description */
+            margin-right: 20px;
             border: 1px solid #050605;
         }
         .work-item-description {
             flex: 1;
         }
-        .carousel-item img {
-            width: 650px;
-            height: auto; /* Ensure the aspect ratio is maintained */
-            margin-right: 20px;
-            border: 1px solid #050605;
-        }
         .carousel-caption {
             right: 0;
-            left: auto; /* Position the caption to the right */
-            color: #000000; /* Text color */
+            left: auto;
+            color: #000000;
             padding: 20px;
-            width: 50%; /* Set a width to control the caption width */
-            position: absolute; /* Position absolutely */
-            top: 0; /* Position at the top */
+            width: 50%;
+            position: absolute;
+            top: 0;
         }
         .carousel-container {
             max-width: 650px;
-            overflow: hidden; /* Ensure that the carousel doesn't overflow its container */
+            overflow: hidden;
         }
         .image-with-description .carousel-container {
             margin-bottom: 20px;
@@ -95,194 +113,201 @@
             align-items: center;
         }
         .image-with-caption-below img {
-            margin-bottom: 20px; /* Adjust spacing between image and description */
+            margin-bottom: 20px;
         }
         .empty-line {
             height: 30px;
         }
-        /* Styles for the layout */
         .big-photo {
             float: right;
             margin-left: 20px;
-            margin-top: 20px; /* Adjust as needed */
+            margin-top: 20px; 
         }
         .text-container {
-            flex: 1; /* Fill remaining space */
-            padding-right: 20px; /* Adjust spacing between photo and text */
+            flex: 1;
+            padding-right: 20px;
         }
 
         .flex-container {
             display: flex;
-            align-items: flex-start; /* Align items at the top */
+            align-items: flex-start;
             padding: 20px;
         }
         .iframe {
-            margin-right: 20px; /* Adjust margin as needed */
+            margin-right: 20px;
             margin-bottom: 20px
         }
-        /* Apply consistent font styling to the entire description */
         #projects .work-item-description {
-            font-family: Arial, sans-serif;
-            font-size: 16px; /* Adjust font size as needed */
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
         }
-
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: none;
+            width: 30px;
+            height: 30px;
+            filter: invert(1); 
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Elissa Steil</h1>
+        <h1>ES</h1>
     </header>
     <div class="tab-container">
         <button class="tab" onclick="showTab('home')">Home</button>
-        <button class="tab" onclick="showTab('gis')">GIS</button>
         <button class="tab" onclick="showTab('dataviz')">Data Viz</button>
         <button class="tab" onclick="showTab('projects')">Projects</button>
+        <button class="tab" onclick="showTab('publication')">Publications</button>
     </div>
     <section id="home" class="clearfix">
         <div class="big-photo">
-            <img src="Photos/Collage.png" alt="Big Photo" width="800" height="400">
+            <img src="Photos/Collage.png" alt="Big Photo" width="800" height="600">
         </div>
         <div class="text-container">
             <h2>Welcome to my portfolio!</h2>
             <div class="empty-line"></div>
             <p>I'm a rising junior at William & Mary, earning my Bachelor of Science in Integrative Conservation with a minor in Data Science. I am passionate about bridging the gap between science and society and hope to do so by communicating complex scientific ideas through data visualization, illustration, and journalism.</p>
-            <p>In my academic pursuits, I've explored the intersection of climate change and data science, honing my skills in various tools and technologies. As an Environmental Science/GIS intern with Noblis and through my data science coursework, I've worked with ArcGIS Pro, ArcGIS Online, Python, and R (particularly tmaps and ggplot), HTML, and web scraping.</p>
-            <p>My passion for the environment and conservation has been a driving force in my professional journey, and I am committed to delivering engaging content that not only informs but also motivates audiences to join the cause of environmental stewardship.</p>
-        </div>
-    </section>
-    <section id="gis" style="display: none;">
-        <h2> </h2>
-        <div class="work-item">
-            <div class="image-with-description">
-                <img src="Photos\Airport.png" alt="Project Image 1" width="650px" height="395">
-                <div class="work-item-description">
-                    <h3>Map Challenge: Hexagons</h3>
-                    <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. I was given a map challenge to create a map using only colored hexagons. I had full freedom to choose data from the Global Airport Database, which provided a CSV file of all airports in the world. </p>
-                </div>
-            </div>
-        </div>
-        <div class="work-item">
-            <div class="image-with-description">
-                <img src="Photos\Railway.png" alt="Project Image 1" width="650px" height="502.325px">
-                <div class="work-item-description">
-                    <h3>Map Challenge: Monochromatic</h3>
-                    <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. I was challenged to create a map using any data in a monochromatic color palette. This map is entirely purple, including a gray and white-like purple. I chose to represent the railroads of my home state, Virginia, and North Carolina. To give more context to the railways I added population data from the census.</p>
-                </div>
-            </div>
-        </div>
-        <div class="work-item">
-            <div class="image-with-description">
-                <img src="Photos\Campus.png" alt="Project Image 1" width="650px" height="425px">
-                <div class="work-item-description">
-                    <h3>Campus Map</h3>
-                    <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. For this project, I was instructed to make a map of some part of my college campus and include a relevant QR code, the school's logo, and traditional map elements.</p>
-                </div>
-            </div>
-        </div>
-        <div class="work-item">
-            <div class="image-with-description">
-                <div class="carousel-container" style="margin-bottom: 20px;"> <!-- Added inline style for margin-bottom -->
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="Photos\Farm_Density.png" class="d-block" alt="Project Image 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Photos\Map2.png" class="d-block" alt="Project Image 2"> 
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Photos\Map5.png" class="d-block" alt="Project Image 2"> 
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Photos\Map4-1.png" class="d-block" alt="Project Image 2"> 
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="work-item-description" style="margin-left: 20px;">
-                    <h3>Map Challenge: Map Series</h3>
-                    <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. I was given a large dataset from the US Agricultural Census and the US Census. I used different geoprocessing tools to calculate the density of farms, the mean center, create a Getis-Ord GI* Hot-Spot Analysis, and find the average age of farmers per county. Non-continental states were omitted to avoid compromising the mean center map.</p>
-                    <p>Click to scroll through the series.</p>
-                </div>
-            </div>
-        </div>
-        <div class="work-item">
-            <div class="image-with-description">
-                <img src="Photos\Cannabis.png" alt="Project Image 1" width="650px" height="927.27px">
-                <div class="work-item-description">
-                    <h3>Briefing Simulation</h3>
-                    <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. For this project, I received a briefing from my 'employer' detailing the criteria for a habitat suitability model for growing cannabis. I was instructed to develop my own briefing in any layout I wanted to, as long as I included the statistics and locations of patches that meet the criteria. </p>
-                    <p>Note: While the data utilized to construct this habitat suitability model is authentic, it is important to highlight that the criteria employed are not suitable for accurately assessing the cultivation potential of cannabis.</p>
-                </div>
-            </div>
-        </div>
-        <div class="work-item">
-            <div class="image-with-description">
-                <div class="carousel-container" style="margin-bottom: 20px;"> <!-- Added inline style for margin-bottom -->
-                    <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="Photos\Top100-1.png" class="d-block" alt="Project Image 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Photos\Top100-2.png" class="d-block" alt="Project Image 2"> 
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Photos\Top100-3.png" class="d-block" alt="Project Image 2"> 
-                            </div>
-                            <div class="carousel-item">
-                                <img src="Photos\Top100-4.png" class="d-block" alt="Project Image 2"> 
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>                   
-                    </div>
-                </div>
-                <div class="work-item-description" style="margin-left: 20px;">
-                    <h3>Research Project: Identifying Parcels</h3>
-                    <p>This map was created in Spring 2024 for a semester-long research project with the Institute for Integrative Conservation at William & Mary. In partnership with a local non-profit, my research partner and I developed a habitat suitability model based on the state's new ConserveVirginia v3.0 plan. In addition to using other data from Virginia's Department of Conservation and Recreation, we identified the parcels within the partner organization's service area that were optimal for conservation easements. This simple layout was created to accompany our raw data files and data dictionary, allowing the partner organization to get a quick understanding of the data.</p>
-                    <p>Click to scroll through the series.</p>
-                </div>
-            </div>
+            <p>In my academic pursuits, I've explored the intersection of climate change and data science, honing my skills in various tools and technologies. As an Environmental Science/GIS intern with Noblis and through my data science coursework, I've worked with ArcGIS Pro, ArcGIS Online, Python, R (particularly tmaps and ggplot), HTML, and web scraping, leveraging these tools to analyze and visualize data effectively.</p>
+            <p>In addition to my proficiency in effective communication, my passion for the environment and conservation has been a driving force in my professional journey. Drawing from a diverse array of work experiences and academic coursework, I have honed my skills in copyediting and nonfiction writing, with a strong focus on advocating for environmental sustainability through literature. I am deeply committed to delivering engaging content that not only informs but also motivates audiences to join the cause of environmental stewardship.</p>
         </div>
     </section>
     <section id="dataviz" style="display: none;">
-        <h2> </h2>
-        <div class="work-item">
-            <div class="image-with-description">
-                <img src="Photos\GDPfinal.gif" alt="Project Image 1" width="650" height= auto>
-                <div class="work-item-description">
-                    <h3>Exports/Imports in Central America</h3>
-                    <p>This dynamic data visualization was created in Fall 2023 for my Data Visualization for Social Science course, using ggplot in R. I was given a very large dataset from VDEM and had full creative freedom to create a visualization. I wanted to challenge myself and include more variables than I had in past assignments. </p>
-                </div>
+        <div class="empty-line"></div>
+        <div class="masonry">
+            <div class="masonry-item">
+                <img src="Photos/Airport.png" alt="Airport" data-toggle="modal" data-target="#imageModal" data-title="Map Challenge: Hexagons" 
+                data-description= 
+                "<br> 
+                <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. I was given a map challenge to create a map using only colored hexagons. I had full freedom to choose data from the Global Airport Database, which provided a CSV file of all airports in the world.</p>
+                <br>
+                <p><b>Skills/Tools Used:</b> ArcGIS Pro (Generate Tesseleation, Summarize Within)">
             </div>
-        </div>
-        <div class="work-item">
-            <div class="image-with-description">
-                <iframe src="Photos/1990.html" class="iframe" width="650" height="450" ></iframe>
-                <div class="work-item-description">
-                    <h3>Tuberculosis Map with Tooltips</h3>
-                    <p>This data visualization was created in Fall 2023 for my Data Visualization for Social Science course, using tmaps in R. Using Esri's integration with R, I created a map without ArcGIS Pro. The map also included tooltips with some relevant information.  </p>
-                </div>
+            <div class="masonry-item">
+                <img src="Photos/Railway.png" alt="Project Image 2" data-toggle="modal" data-target="#imageModal" data-title="Map Challenge: Monochromatic" 
+                data-description=
+                "<br>
+                <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. I was challenged to create a map using any data in a monochromatic color palette. This map is entirely purple, including a gray and white-like purple. I chose to represent the railroads of my home state, Virginia, and North Carolina. To give more context to the railways I added population data from the census.</p>
+                <br>
+                <p><b>Skills/Tools Used:</b> ArcGIS Pro">
             </div>
+            <div class="masonry-item">
+                <img src="Photos/Campus.png" alt="Project Image 3" data-toggle="modal" data-target="#imageModal" data-title= "Campus Map" 
+                data-description=
+                "<br>
+                <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. For this project, I was instructed to make a map of some part of my college campus and include a relevant QR code, the school's logo, and traditional map elements.</p>
+                <br>
+                <p><b>Skills/Tools Used:</b> ArcGIS Pro">
+            </div>
+            <div class="masonry-item">
+                <img src="Photos/Cannabis.png" alt="Project Image 3" data-toggle="modal" data-target="#imageModal" data-title= "Suitability Model" 
+                data-description=
+                "<br>
+                <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. For this project, I was instructed to make a map of some part of my college campus and include a relevant QR code, the school's logo, and traditional map elements.</p>
+                <br>
+                <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Calculate Geometry)">
+            </div>
+            <div class="masonry-item">
+                <img src="Photos/GDPfinal.gif" alt="Project Image 1" data-toggle="modal" data-target="#imageModal" data-title= "Imports & Exports in Central America" 
+                data-description=
+                "<br>
+                <p>This dynamic data visualization was created in Fall 2023 for my Data Visualization for Social Science course, using ggplot in R. I was given a very large dataset from VDEM and had full creative freedom to create a visualization. I wanted to challenge myself and include more variables than I had in past assignments.</p>
+                <br>
+                <p><b>Skills/Tools Used:</b> RStudio (ggplot2)">
+            </div>
+            <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="Photos/Top100-1.png" class="d-block" alt="Project Image 1" data-toggle="modal" data-target="#imageModal" data-title="Introduction Page" 
+                        data-description=
+                        "<br>
+                        <p>This is the title page of a final report created for a client, which introduces the map the report will delve in to. My classmate and I were tasked with using public-available government data (ConserveVA3.0 & Biodiversity Corridor) to identify parcels matching their desired criteria.</p>
+                        <br>
+                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Polygon to Raster)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Photos/Top100-2.png" class="d-block" alt="Project Image 2" data-toggle="modal" data-target="#imageModal" data-title="Project Page 2" 
+                        data-description=
+                        "<br>
+                        <p>This is the second page of a final report created for a client, which identifies the sections that the report will be focused on.</p>
+                        <br>
+                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Polygon to Raster)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Photos/Top100-3.png" class="d-block" alt="Project Image 3" data-toggle="modal" data-target="#imageModal" data-title="Project Page 3" 
+                        data-description=
+                        "<br>
+                        <p>This is the third final page of a final report created for a client, which identifies the optimal parcels for the client's needs. The client works based off of drive time from their office so this page uses a map layer which shows main roads and local labels.</p>
+                        <br>
+                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Polygon to Raster)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Photos/Top100-4.png" class="d-block" alt="Project Image 4" data-toggle="modal" data-target="#imageModal" data-title="Project Page 4" 
+                        data-description=
+                        "<br>
+                        <p>This is the fourth and final page of a report created for a client, which identifies the optimal parcels for the client's needs. The client works based off of drive time from their office so this page uses a map layer which shows main roads and local labels.</p>
+                        <br>
+                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Polygon to Raster)">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="Photos/Farm_Density.png" class="d-block" alt="Project Image 1" data-toggle="modal" data-target="#imageModal" data-title="Farm Density" 
+                        data-description=
+                        "<br>
+                        <p>This is the first of a four-part map series. I was given a large census dataset that I had to manage to create these maps. This map uses dot density to show farm distribution across the continguous United States.</p>
+                        <br>
+                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Getis-Ord GI* Hot Spot Analysis, Summarize Within, Feature to Point, Calculate Geometry, Mean Center)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Photos/Map2.png" class="d-block" alt="Project Image 2" data-toggle="modal" data-target="#imageModal" data-title="Mean Center" 
+                        data-description=
+                        "<br>
+                        <p>This is the second of a four-part map series. I was given a large census dataset that I had to manage to create these maps. This map uses the mean center tool to show the weighted centroid of farms across the continguous United States.</p>
+                        <br>
+                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Getis-Ord GI* Hot Spot Analysis, Summarize Within, Feature to Point, Calculate Geometry, Mean Center)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Photos/Map4-1.png" class="d-block" alt="Project Image 3" data-toggle="modal" data-target="#imageModal" data-title="Average Age Chloropleth"
+                        data-description=
+                        "<br>
+                        <p>This is the third of a four-part map series. I was given a large census dataset that I had to manage to create these maps. This map is a chloropleth map that shows average age of farm operators across the continguous United States.</p>
+                        <br>
+                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Getis-Ord GI* Hot Spot Analysis, Summarize Within, Feature to Point, Calculate Geometry, Mean Center)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Photos/Map5.png" class="d-block" alt="Project Image 4" data-toggle="modal" data-target="#imageModal" data-title="Hot Spot Analysis"
+                        data-description=
+                        "<br>
+                        <p>This is the fourth of a four-part map series. I was given a large census dataset that I had to manage to create these maps. This map uses the Getis-Ord GI* tool to create a hot spot analysis of farms that are enrolled in conservation programs across the continguous United States.</p>
+                        <br>
+                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Getis-Ord GI* Hot Spot Analysis, Summarize Within, Feature to Point, Calculate Geometry, Mean Center)">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls3" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+                                                 
         </div>
     </section>
     <section id="projects" style="display: none;">
-        <h2> </h2>
+        <div class="empty-line"></div>
         <div class="work-item">
             <div class="image-with-caption-below">
                 <div class="work-item-description">
@@ -303,23 +328,67 @@
             </div>
         </div>
     </section>
+    <section id="publication" style="display: none;">
+        <h2></h2>
+        <div class="masonry">
+            <div class="masonry-item">
+                <img src="Photos/Book.jpg" alt="Project Image 1" style="width: auto; height: 400px;" data-toggle="modal" data-target="#imageModal" data-title="Telehealth Book"
+                data-description=
+                "<br>
+                <p>This was the first book I edited with the Library of Patient Rights & Advocacy. I herded a team of writers to choose topics and write chapters. I edited the book for cohesion and best writing practices.</p>
+                <br?
+                <p><b>Skills/Tools Used:</b> Communication, Copyediting, Research, Amazon Publishing">
+            </div>
+            <div class="masonry-item">
+                <img src="Photos/Journal.png" alt="Project Image 2" style="width: auto; height: 400px;" data-toggle="modal" data-target="#imageModal" data-title="Journal"
+                data-description=
+                "<br>
+                <p>This is the first edition of a journal I am editing for the Library of Patient Rights & Advocacy. I herded a team of writers to choose topics and write unique articles. I edited the journal for APA-style best practices and formatted the chapters with pictures and charts to add visual interest.</p>
+                <br>
+                <p><b>Skills/Tools Used:</b> Communication, Copyediting, Research, Layout Design, Canva">
+            </div>
+        </div>
+    </section>
     <footer>
         <p> </p>
     </footer>
 
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Image Description</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="Image">
+                    <div id="imageDescription"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function showTab(tabName) {
-            // Hide all sections
-            var sections = document.querySelectorAll('section');
-            sections.forEach(function(section) {
+        function showTab(tabId) {
+            document.querySelectorAll('section').forEach(section => {
                 section.style.display = 'none';
             });
-            // Show the selected tab
-            var selectedTab = document.getElementById(tabName);
-            if (selectedTab) {
-                selectedTab.style.display = 'block';
-            }
+            document.getElementById(tabId).style.display = 'block';
         }
+    
+        $('#imageModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var src = button.attr('src');
+            var title = button.data('title');
+            var description = button.data('description');
+            var modal = $(this);
+            modal.find('.modal-title').text(title);
+            modal.find('.modal-body img').attr('src', src);
+            modal.find('#imageDescription').html(description);
+        });
     </script>
+    
 </body>
 </html>
