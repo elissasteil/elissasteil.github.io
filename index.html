@@ -239,6 +239,7 @@
         .lightbox-content {
             position: relative;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background: white;
@@ -246,11 +247,13 @@
             border: 1px solid #e0e0e0;
             padding: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 95vw;
+            max-height: 95vh;
         }
 
         .lightbox img {
             max-width: 90vw;
-            max-height: 90vh;
+            max-height: 70vh;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -258,15 +261,14 @@
         }
 
         .lightbox-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
+            position: relative;
+            background: white;
             color: #333;
-            padding: 2rem;
+            padding: 1.5rem 2rem;
             text-align: center;
-            border-radius: 0 0 20px 20px;
+            border-radius: 0;
+            margin-top: 1rem;
+            max-width: 90vw;
         }
 
         .lightbox-close {
@@ -548,8 +550,8 @@
         <div class="container">
             <div class="hero">
                 <h1>Welcome to my SciComm Portfolio!</h1>
-                <p>Conservation & Geospatial Analytics Student at William & Mary</p>
-                <a href="#" onclick="showPage('portfolio')" class="cta-button">View My Work!</a>
+                <p>Currently interning @ NASA and studying @ Williams & Mary.</p>
+                <a href="#" onclick="showPage('portfolio')" class="cta-button">View My Work</a>
             </div>
 
             <!-- Skills Section -->
@@ -579,8 +581,9 @@
                     <div class="skill-category">
                         <h3>Communication</h3>
                         <div class="skills-list">
-                            <span class="skill-tag">Science Journalism</span>
+                            <span class="skill-tag">Scientific Writing</span>
                             <span class="skill-tag">Data Storytelling</span>
+                            <span class="skill-tag">User Design</span>
                             <span class="skill-tag">Social Media</span>
                             <span class="skill-tag">Early Education</span>
                             <span class="skill-tag">Curriculum Development</span>
