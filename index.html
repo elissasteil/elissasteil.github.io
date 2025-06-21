@@ -15,7 +15,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: black;
+            background: #ffffff;
             min-height: 100vh;
         }
 
@@ -27,14 +27,15 @@
 
         /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav .container {
@@ -46,7 +47,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: white;
+            color: #333;
         }
 
         .nav-links {
@@ -56,16 +57,17 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #333;
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            font-weight: 500;
         }
 
         .nav-links a:hover, .nav-links a.active {
-            background: rgba(255, 255, 255, 0.2);
+            background: #f0f0f0;
+            color: #007acc;
             transform: translateY(-2px);
         }
 
@@ -84,7 +86,7 @@
         .hero {
             text-align: center;
             padding: 4rem 0;
-            color: white;
+            color: #333;
         }
 
         .hero h1 {
@@ -92,6 +94,8 @@
             margin-bottom: 1rem;
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
+            color: #2c3e50;
+            font-weight: 700;
         }
 
         .hero p {
@@ -99,38 +103,46 @@
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
+            color: #666;
         }
 
         .cta-button {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
+            background: #007acc;
             color: white;
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 50px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid #007acc;
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
+            font-weight: 500;
         }
 
         .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: #005a9e;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 122, 204, 0.3);
         }
 
         /* Portfolio Page */
         .portfolio-header {
             text-align: center;
-            color: white;
+            color: #333;
             margin-bottom: 3rem;
         }
 
         .portfolio-header h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .portfolio-header p {
+            color: #666;
+            font-size: 1.1rem;
         }
 
         .filter-section {
@@ -142,18 +154,20 @@
         }
 
         .filter-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
             cursor: pointer;
-            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: rgba(255, 255, 255, 0.4);
+            background: #007acc;
+            color: white;
+            border-color: #007acc;
             transform: translateY(-2px);
         }
 
@@ -165,19 +179,19 @@
         }
 
         .gallery-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #e0e0e0;
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeInUp 0.6s ease forwards;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .gallery-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-item img {
@@ -188,18 +202,25 @@
 
         .gallery-item-info {
             padding: 1rem;
-            color: white;
+            color: #333;
+        }
+
+        .gallery-item-info h4 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
         }
 
         .category-tag {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: #e3f2fd;
+            color: #0277bd;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
             display: inline-block;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
         .lightbox {
@@ -225,11 +246,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(255, 255, 255, 0.1);
+            background: white;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
+            border: 1px solid #e0e0e0;
             padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .lightbox img {
@@ -246,36 +267,40 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
+            color: #333;
             padding: 2rem;
             text-align: center;
+            border-radius: 0 0 20px 20px;
         }
 
         .lightbox-close {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
             width: 50px;
             height: 50px;
             border-radius: 50%;
             font-size: 1.5rem;
             cursor: pointer;
-            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
 
         .lightbox-close:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: #e9ecef;
+            color: #dc3545;
         }
 
         /* Skills Section */
         .skills-section {
             padding: 4rem 0;
-            color: white;
+            color: #333;
+            background: #f8f9fa;
+            margin: 2rem 0;
+            border-radius: 20px;
         }
 
         .skills-section h2 {
@@ -284,6 +309,8 @@
             margin-bottom: 3rem;
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
+            color: #2c3e50;
+            font-weight: 700;
         }
 
         .skills-grid {
@@ -293,25 +320,26 @@
         }
 
         .skill-category {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             border-radius: 20px;
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #e0e0e0;
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .skill-category:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .skill-category h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            font-weight: 600;
         }
 
         .skills-list {
@@ -321,24 +349,25 @@
         }
 
         .skill-tag {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: #e8f5e8;
+            color: #2e7d32;
             padding: 0.4rem 0.8rem;
             border-radius: 15px;
             font-size: 0.85rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid #c8e6c9;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .skill-tag:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: #c8e6c9;
             transform: translateY(-2px);
         }
 
         /* Timeline Section */
         .timeline-section {
             padding: 4rem 0;
-            color: white;
+            color: #333;
         }
 
         .timeline-section h2 {
@@ -347,6 +376,8 @@
             margin-bottom: 3rem;
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
+            color: #2c3e50;
+            font-weight: 700;
         }
 
         .timeline {
@@ -362,7 +393,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            background: linear-gradient(to bottom, #007acc, #e0e0e0);
         }
 
         .timeline-item {
@@ -383,29 +414,29 @@
             top: 0;
             width: 18px;
             height: 18px;
-            background: rgba(255, 255, 255, 0.8);
+            background: #007acc;
             border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #007acc;
         }
 
         .timeline-content {
             margin-left: 70px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: #ffffff;
             border-radius: 15px;
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #e0e0e0;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .timeline-content:hover {
             transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .timeline-date {
-            color: rgba(255, 255, 255, 0.7);
+            color: #007acc;
             font-size: 0.9rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
@@ -414,12 +445,13 @@
         .timeline-content h3 {
             font-size: 1.4rem;
             margin-bottom: 0.3rem;
-            color: white;
+            color: #2c3e50;
+            font-weight: 600;
         }
 
         .timeline-content h4 {
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: #666;
             margin-bottom: 1rem;
             font-weight: normal;
             font-style: italic;
@@ -427,19 +459,24 @@
 
         .timeline-content p {
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
+            color: #555;
         }       
         /* Blank Page */
         .blank-content {
             text-align: center;
-            color: white;
+            color: #333;
             padding: 4rem 0;
         }
 
         .blank-content h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            opacity: 0.7;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .blank-content p {
+            color: #666;
         }
 
         /* Animations */
