@@ -4,405 +4,388 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-        body {
-            font-family: 'Lato', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            position: relative;
-            background-color: #fff;
-            color: #000;
-        }
-        img {
-            display: block;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #539665;
-            padding: 20px;
-        }
-        h1 {
-            text-align: left;
-            margin: 0;
-            font-size: 30px;
-        }
-        .tab-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            bottom: 20px;
-        }
-        .tab {
-            display: inline-block;
-            background-color: #498258;
-            color: #fff;
-            padding: 10px 20px;
-            margin-right: 10px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .tab:hover {
-            background-color: #539665;
-        }
-        .tab-content {
-            padding: 20px;
-        }
-        footer {
-            background-color: #539665;
-            padding: 0px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .masonry {
-            column-count: 3;
-            column-gap: 2rem;
-            margin-bottom: 50px;
-        }
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 2rem;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-        .masonry-item img {
-            width: 100%;
-            display: block;
-            border: 1px solid #000;
-        }
-        .carousel-item img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 2rem;
-            border: 1px solid #050605;
-        }
-        .modal-content img {
-            width: 100%;
-        }
-        .work-item {
-            display: flex;
-            margin-bottom: 100px;
-        }
-        .image-with-description {
-            display: flex;
-            align-items: center;
-        }
-        .work-item img {
-            margin-right: 20px;
-            border: 1px solid #050605;
-        }
-        .work-item-description {
-            flex: 1;
-            margin-right: 20px;
-            margin-left: 20px;
-        }
-        .carousel-caption {
-            right: 0;
-            left: auto;
-            color: #000000;
-            padding: 20px;
-            width: 50%;
-            position: absolute;
-            top: 0;
-        }
-        .carousel-container {
-            max-width: 650px;
-            overflow: hidden;
-        }
-        .image-with-description .carousel-container {
-            margin-bottom: 20px;
-        }
-        .image-with-caption-below {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .image-with-caption-below img {
-            margin-bottom: 20px;
-        }
-        .empty-line {
-            height: 30px;
-        }
-        .big-photo {
-            float: right;
-            margin-left: 20px;
-            margin-top: 20px; 
-        }
-        .text-container {
-            flex: 1;
-            padding-right: 20px;
+            box-sizing: border-box;
         }
 
-        .flex-container {
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: black;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav .container {
             display: flex;
-            align-items: flex-start;
-            padding: 20px;
+            justify-content: space-between;
+            align-items: center;
         }
-        .iframe {
-            margin-right: 20px;
-            margin-bottom: 20px
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
         }
-        #projects .work-item-description {
-            font-family: 'Lato', sans-serif;
-            font-size: 16px;
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: none;
-            width: 30px;
-            height: 30px;
-            filter: invert(1); 
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Page Content */
+        .page {
+            display: none;
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Home Page */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Portfolio Page */
+        .portfolio-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .portfolio-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+
+
+        .filter-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-item-info {
+            padding: 1rem;
+            color: white;
+        }
+
+        .category-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        /* Blank Page */
+        .blank-content {
+            text-align: center;
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .blank-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .upload-controls {
+                flex-direction: column;
+            }
+
+            .filter-section {
+                justify-content: flex-start;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>ES</h1>
-    </header>
-    <div class="tab-container">
-        <button class="tab" onclick="showTab('home')">Home</button>
-        <button class="tab" onclick="showTab('dataviz')">Data Viz</button>
-        <button class="tab" onclick="showTab('projects')">Projects</button>
-        <button class="tab" onclick="showTab('publication')">Publications</button>
-    </div>
-    <section id="home">
-        <body>
-            <img src="Photos/HomePage.png" width="100%" height="auto">
-        </body>
-    </section>
-    <section id="dataviz" style="display: none;">
-        <div class="empty-line"></div>
-        <div class="masonry">
-        <div class ="tab-content">
-            <div class="masonry-item">
-                <img src="Photos/Airport.png" alt="Airport" data-toggle="modal" data-target="#imageModal" data-title="Map Challenge: Hexagons" 
-                data-description= 
-                "<br> 
-                <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. I was given a map challenge to create a map using only colored hexagons. I had full freedom to choose data from the Global Airport Database, which provided a CSV file of all airports in the world.</p>
-                <br>
-                <p><b>Skills/Tools Used:</b> ArcGIS Pro (Generate Tesseleation, Summarize Within)">
-            </div>
-            <div class="masonry-item">
-                <img src="Photos/Railway.png" alt="Project Image 2" data-toggle="modal" data-target="#imageModal" data-title="Map Challenge: Monochromatic" 
-                data-description=
-                "<br>
-                <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. I was challenged to create a map using any data in a monochromatic color palette. This map is entirely purple, including a gray and white-like purple. I chose to represent the railroads of my home state, Virginia, and North Carolina. To give more context to the railways I added population data from the census.</p>
-                <br>
-                <p><b>Skills/Tools Used:</b> ArcGIS Pro">
-            </div>
-            <div class="masonry-item">
-                <img src="Photos/Campus.png" alt="Project Image 3" data-toggle="modal" data-target="#imageModal" data-title= "Campus Map" 
-                data-description=
-                "<br>
-                <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. For this project, I was instructed to make a map of some part of my college campus and include a relevant QR code, the school's logo, and traditional map elements.</p>
-                <br>
-                <p><b>Skills/Tools Used:</b> ArcGIS Pro">
-            </div>
-            <div class="masonry-item">
-                <img src="Photos/Cannabis.png" alt="Project Image 3" data-toggle="modal" data-target="#imageModal" data-title= "Suitability Model" 
-                data-description=
-                "<br>
-                <p>This map was created in Spring 2024 for my Geovisualization & Cartography course. For this project, I was instructed to make a map of some part of my college campus and include a relevant QR code, the school's logo, and traditional map elements.</p>
-                <br>
-                <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Calculate Geometry)">
-            </div>
-            <div class="masonry-item">
-                <img src="Photos/GDPfinal.gif" alt="Project Image 1" data-toggle="modal" data-target="#imageModal" data-title= "Imports & Exports in Central America" 
-                data-description=
-                "<br>
-                <p>This dynamic data visualization was created in Fall 2023 for my Data Visualization for Social Science course, using ggplot in R. I was given a very large dataset from VDEM and had full creative freedom to create a visualization. I wanted to challenge myself and include more variables than I had in past assignments.</p>
-                <br>
-                <p><b>Skills/Tools Used:</b> RStudio (ggplot2)">
-            </div>
-            <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="Photos/Top100-1.png" class="d-block" alt="Project Image 1" data-toggle="modal" data-target="#imageModal" data-title="Introduction Page" 
-                        data-description=
-                        "<br>
-                        <p>This is the title page of a final report created for a client, which introduces the map the report will delve in to. My classmate and I were tasked with using public-available government data (ConserveVA3.0 & Biodiversity Corridor) to identify parcels matching their desired criteria.</p>
-                        <br>
-                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Polygon to Raster)">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Photos/Top100-2.png" class="d-block" alt="Project Image 2" data-toggle="modal" data-target="#imageModal" data-title="Project Page 2" 
-                        data-description=
-                        "<br>
-                        <p>This is the second page of a final report created for a client, which identifies the sections that the report will be focused on.</p>
-                        <br>
-                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Polygon to Raster)">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Photos/Top100-3.png" class="d-block" alt="Project Image 3" data-toggle="modal" data-target="#imageModal" data-title="Project Page 3" 
-                        data-description=
-                        "<br>
-                        <p>This is the third final page of a final report created for a client, which identifies the optimal parcels for the client's needs. The client works based off of drive time from their office so this page uses a map layer which shows main roads and local labels.</p>
-                        <br>
-                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Polygon to Raster)">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Photos/Top100-4.png" class="d-block" alt="Project Image 4" data-toggle="modal" data-target="#imageModal" data-title="Project Page 4" 
-                        data-description=
-                        "<br>
-                        <p>This is the fourth and final page of a report created for a client, which identifies the optimal parcels for the client's needs. The client works based off of drive time from their office so this page uses a map layer which shows main roads and local labels.</p>
-                        <br>
-                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Raster Calculator, Con, Polygon to Raster)">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="Photos/Farm_Density.png" class="d-block" alt="Project Image 1" data-toggle="modal" data-target="#imageModal" data-title="Farm Density" 
-                        data-description=
-                        "<br>
-                        <p>This is the first of a four-part map series. I was given a large census dataset that I had to manage to create these maps. This map uses dot density to show farm distribution across the continguous United States.</p>
-                        <br>
-                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Getis-Ord GI* Hot Spot Analysis, Summarize Within, Feature to Point, Calculate Geometry, Mean Center)">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Photos/Map2.png" class="d-block" alt="Project Image 2" data-toggle="modal" data-target="#imageModal" data-title="Mean Center" 
-                        data-description=
-                        "<br>
-                        <p>This is the second of a four-part map series. I was given a large census dataset that I had to manage to create these maps. This map uses the mean center tool to show the weighted centroid of farms across the continguous United States.</p>
-                        <br>
-                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Getis-Ord GI* Hot Spot Analysis, Summarize Within, Feature to Point, Calculate Geometry, Mean Center)">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Photos/Map4-1.png" class="d-block" alt="Project Image 3" data-toggle="modal" data-target="#imageModal" data-title="Average Age Chloropleth"
-                        data-description=
-                        "<br>
-                        <p>This is the third of a four-part map series. I was given a large census dataset that I had to manage to create these maps. This map is a chloropleth map that shows average age of farm operators across the continguous United States.</p>
-                        <br>
-                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Getis-Ord GI* Hot Spot Analysis, Summarize Within, Feature to Point, Calculate Geometry, Mean Center)">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Photos/Map5.png" class="d-block" alt="Project Image 4" data-toggle="modal" data-target="#imageModal" data-title="Hot Spot Analysis"
-                        data-description=
-                        "<br>
-                        <p>This is the fourth of a four-part map series. I was given a large census dataset that I had to manage to create these maps. This map uses the Getis-Ord GI* tool to create a hot spot analysis of farms that are enrolled in conservation programs across the continguous United States.</p>
-                        <br>
-                        <p><b>Skills/Tools Used:</b> ArcGIS Pro (Getis-Ord GI* Hot Spot Analysis, Summarize Within, Feature to Point, Calculate Geometry, Mean Center)">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls3" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls3" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>                   
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Elissa Steil</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+                <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+                <li><a href="#" onclick="showPage('blank')">Blank Page</a></li>
+            </ul>
         </div>
-    </section>
-    <section id="projects" style="display: none;">
-        <div class="empty-line"></div>
-        <div class="work-item">
-            <div class="image-with-caption-below">
-                <div class="work-item-description">
-                    <h3>Chesapeake Bay Storymap</h3>
-                    <p>This storymap was created for my Intro to Conservation GIS class in Fall 2023. It was my final project for the class and looks at the relationship between type of shoreline in the Chesapeake Bay and protection from pollution.</p>
-                    <p>Click the link <a href="https://arcg.is/0miXKy">here</a> to view the full storymap!</p>
-                </div>
-                <img src="Photos/Storymap.png" width="1200" height="706" frameborder="0"></iframe>
-            </div>
-        </div>
-        <div class="work-item">
-            <div class="image-with-caption-below">
-                <div class="work-item-description">
-                    <h3>Geospatial Research Poster</h3>
-                    <p>This research poster was created for my Digital Environmental Humanities course in Spring 2024. I performed a critical analysis of the geospatial analysis tool 'Google Earth Engine,' using a web scraping tool to determine the countries in which each dataset available in the catalog was produced. This allowed me to consider the role of knowledge production in the geoprocessing tools I use.</p>
-                </div>
-                <img src="Photos\DEHGEE.png" alt="Project Image 1" width="1200" height="927">
-            </div>
-        </div>
-    </section>
-    <section id="publication" style="display: none;">
-        <h2></h2>
-        <div class="masonry">
-            <div class="masonry-item">
-                <img src="Photos/Book.jpg" alt="Project Image 1" style="width: auto; height: 400px;" data-toggle="modal" data-target="#imageModal" data-title="Telehealth Book"
-                data-description=
-                "<br>
-                <p>This was the first book I edited with the Library of Patient Rights & Advocacy. I herded a team of writers to choose topics and write chapters. I edited the book for cohesion and best writing practices.</p>
-                <br?
-                <p><b>Skills/Tools Used:</b> Communication, Copyediting, Research, Amazon Publishing">
-            </div>
-            <div class="masonry-item">
-                <img src="Photos/Journal.png" alt="Project Image 2" style="width: auto; height: 400px;" data-toggle="modal" data-target="#imageModal" data-title="Journal"
-                data-description=
-                "<br>
-                <p>This is the first edition of a journal I am editing for the Library of Patient Rights & Advocacy. I herded a team of writers to choose topics and write unique articles. I edited the journal for APA-style best practices and formatted the chapters with pictures and charts to add visual interest.</p>
-                <br>
-                <p><b>Skills/Tools Used:</b> Communication, Copyediting, Research, Layout Design, Canva">
-            </div>
-            <div class="masonry-item">
-                <img src="Photos/cover.jpg" alt="Project Image 2" style="width: auto; height: 400px;" data-toggle="modal" data-target="#imageModal" data-title="Journal"
-                data-description=
-                "<br>
-                <p>This was a digital art piece I created as an Artist-in-Residence at Vanderbilt's ArtLab. It was accepted by CellPress' Trends in Plant Science journal to be published as cover art. This art cartoonishly depicts the regulators of plant root growth.</p>
-                <br>
-                <p><b>Skills/Tools Used:</b> Research, Procreate, Science Communication">
-            </div>
-        </div>
-    </section>
-    <footer>
-        <p> </p>
-    </footer>
+    </nav>
 
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel">Image Description</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <div class="hero">
+                <h1>Welcome to My Portfolio</h1>
+                <p>Showcasing creativity, passion, and professional excellence</p>
+                <a href="#" onclick="showPage('portfolio')" class="cta-button">View My Work</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Page -->
+    <div id="portfolio" class="page">
+        <div class="container">
+            <div class="portfolio-header">
+                <h2>My Science Communication Portfolio</h2>
+                <p>Explore my work organized by category</p>
+            </div>
+
+            <div class="filter-section" id="filterSection">
+                <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+                <button class="filter-btn" onclick="filterGallery('Data Visualization')">Data Visualization</button>
+                <button class="filter-btn" onclick="filterGallery('Scientific Illustration')">Scientific Illustration</button>
+                <button class="filter-btn" onclick="filterGallery('Cartography')">Cartography</button>
+                <button class="filter-btn" onclick="filterGallery('Research')">Research</button>
+            </div>
+
+            <div class="gallery" id="gallery">
+                <!-- Sample portfolio items -->
+                <div class="gallery-item" data-category="Cartography">
+                    <img src="Photos/Airport.png" alt="Airport Map">
+                    <div class="gallery-item-info">
+                        <h4>Airport Map</h4>
+                        <span class="category-tag">Cartography</span>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <img src="" alt="Image">
-                    <div id="imageDescription"></div>
+                <div class="gallery-item" data-category="photography">
+                    <img src="https://via.placeholder.com/400x250/764ba2/ffffff?text=Photo+1" alt="Photo 1">
+                    <div class="gallery-item-info">
+                        <h4>Landscape Photography</h4>
+                        <span class="category-tag">Photography</span>
+                    </div>
                 </div>
+                <div class="gallery-item" data-category="graphics">
+                    <img src="https://via.placeholder.com/400x250/f093fb/ffffff?text=Graphic+1" alt="Graphic Design 1">
+                    <div class="gallery-item-info">
+                        <h4>Brand Identity Design</h4>
+                        <span class="category-tag">Graphics</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="web design">
+                    <img src="https://via.placeholder.com/400x250/667eea/ffffff?text=Web+Project+2" alt="Web Project 2">
+                    <div class="gallery-item-info">
+                        <h4>E-commerce Platform</h4>
+                        <span class="category-tag">Web Design</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="photography">
+                    <img src="https://via.placeholder.com/400x250/764ba2/ffffff?text=Photo+2" alt="Photo 2">
+                    <div class="gallery-item-info">
+                        <h4>Portrait Session</h4>
+                        <span class="category-tag">Photography</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="graphics">
+                    <img src="https://via.placeholder.com/400x250/f093fb/ffffff?text=Graphic+2" alt="Graphic Design 2">
+                    <div class="gallery-item-info">
+                        <h4>Poster Design</h4>
+                        <span class="category-tag">Graphics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blank Page -->
+    <div id="blank" class="page">
+        <div class="container">
+            <div class="blank-content">
+                <h2>Blank Page</h2>
+                <p>This is your blank page - ready for your content!</p>
             </div>
         </div>
     </div>
 
     <script>
-        function showTab(tabId) {
-            document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'none';
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
             });
-            document.getElementById(tabId).style.display = 'block';
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
         }
-    
-        $('#imageModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var src = button.attr('src');
-            var title = button.data('title');
-            var description = button.data('description');
-            var modal = $(this);
-            modal.find('.modal-title').text(title);
-            modal.find('.modal-body img').attr('src', src);
-            modal.find('#imageDescription').html(description);
-        });
+
+        // Filter gallery by category
+        function filterGallery(category) {
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Filter gallery items
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    item.style.animation = 'none';
+                    item.offsetHeight; // Trigger reflow
+                    item.style.animation = 'fadeInUp 0.6s ease forwards';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
     </script>
-    
-</body>
-</html>
