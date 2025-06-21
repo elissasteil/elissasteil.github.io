@@ -211,16 +211,11 @@
             font-weight: 600;
         }
 
-        .category-tag {
-            background: #e3f2fd;
-            color: #0277bd;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+        .gallery-item-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-top: 0.5rem;
         }
 
         .lightbox {
@@ -540,7 +535,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Elissa Steil</div>
+            <div class="logo">ES</div>
             <ul class="nav-links">
                 <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
                 <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
@@ -671,59 +666,59 @@
             <div class="gallery" id="gallery">
                 <!-- Sample portfolio items -->
                 <div class="gallery-item" data-category="cart">
-                    <img src="Photos/Airport.png" alt="Airport Map" onclick="openLightbox(this, 'Airport Map', 'Cartography')">
+                    <img src="Photos/Airport.png" alt="Airport Map" onclick="openLightbox(this, 'Airport Map', 'A detailed geographic visualization of regional airport locations and their proximity to major transportation networks.')">
                     <div class="gallery-item-info">
                         <h4>Airport Map</h4>
+                        <div class="gallery-item-description">A detailed geographic visualization of regional airport locations and their proximity to major transportation networks.</div>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="pubs">
-                    <img src="Photos/Book.jpg" alt="Beyond Boundaries" onclick="openLightbox(this, 'Beyond Boundaries', 'Publications')">
+                    <img src="Photos/Book.jpg" alt="Beyond Boundaries" onclick="openLightbox(this, 'Beyond Boundaries', 'A comprehensive guide exploring interdisciplinary approaches to healthcare and patient advocacy.')">
                     <div class="gallery-item-info">
                         <h4>Beyond Boundaries</h4>
-                        <span class="category-tag">Publications</span>
+                        <div class="gallery-item-description">A comprehensive guide exploring interdisciplinary approaches to healthcare and patient advocacy.</div>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="cart">
-                    <img src="Photos/Campus.png" alt="Campus Map" onclick="openLightbox(this, 'Campus Map', 'Cartography')">
+                    <img src="Photos/Campus.png" alt="Campus Map" onclick="openLightbox(this, 'Campus Map', 'An interactive campus wayfinding map designed to help students and visitors navigate university facilities and resources.')">
                     <div class="gallery-item-info">
                         <h4>Campus Map</h4>
-                        <span class="category-tag">Cartography</span>
+                        <div class="gallery-item-description">An interactive campus wayfinding map designed to help students and visitors navigate university facilities and resources.</div>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="cart">
-                    <img src="Photos/Cannabis.png" alt="Fake Habitat Suitability" onclick="openLightbox(this, 'Habitat Suitability', 'Cartography')">
+                    <img src="Photos/Cannabis.png" alt="Fake Habitat Suitability" onclick="openLightbox(this, 'Habitat Suitability', 'GIS analysis modeling optimal environmental conditions for species distribution using spatial data and ecological factors.')">
                     <div class="gallery-item-info">
                         <h4>Habitat Suitability</h4>
-                        <span class="category-tag">Cartography</span>
+                        <div class="gallery-item-description">GIS analysis modeling optimal environmental conditions for species distribution using spatial data and ecological factors.</div>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="cart">
-                    <img src="Photos/Farm_TwoMap.png" alt="Farm Density" onclick="openLightbox(this, 'Farm Density', 'Cartography')">
+                    <img src="Photos/Farm_TwoMap.png" alt="Farm Density" onclick="openLightbox(this, 'Farm Density', 'Comparative analysis showing agricultural land use patterns and farm density distribution across different regions.')">
                     <div class="gallery-item-info">
                         <h4>Farm Density</h4>
-                        <span class="category-tag">Cartography</span>
+                        <div class="gallery-item-description">Comparative analysis showing agricultural land use patterns and farm density distribution across different regions.</div>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="pubs,scill">
-                    <img src="Photos/cover.jpg" alt="Cover Art" onclick="openLightbox(this, 'Cover Art', 'Publications, Scientific Illustration')">
+                    <img src="Photos/cover.jpg" alt="Cover Art" onclick="openLightbox(this, 'Cover Art', 'Original scientific illustration combining artistic design with accurate representation of complex biological concepts.')">
                     <div class="gallery-item-info">
                         <h4>Cover Art</h4>
-                        <span class="category-tag">Publications</span>
-                        <span class="category-tag">Scientific Illustration</span>
+                        <div class="gallery-item-description">Original scientific illustration combining artistic design with accurate representation of complex biological concepts.</div>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="cart">
-                    <img src="Photos/Railway.png" alt="Railway Map" onclick="openLightbox(this, 'Railway Map', 'Cartography')">
+                    <img src="Photos/Railway.png" alt="Railway Map" onclick="openLightbox(this, 'Railway Map', 'Transportation infrastructure visualization showing railway networks and their connections to urban centers.')">
                     <div class="gallery-item-info">
                         <h4>Railway Map</h4>
-                        <span class="category-tag">Cartography</span>
+                        <div class="gallery-item-description">Transportation infrastructure visualization showing railway networks and their connections to urban centers.</div>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="pubs">
-                    <img src="Photos/Journal.png" alt="Journal" onclick="openLightbox(this, 'Journal', 'Publications')">
+                    <img src="Photos/Journal.png" alt="Journal" onclick="openLightbox(this, 'Journal', 'Seasonal publication featuring peer-reviewed articles on public health initiatives and patient advocacy research.')">
                     <div class="gallery-item-info">
                         <h4>Journal</h4>
-                        <span class="category-tag">Publications</span>
+                        <div class="gallery-item-description">Seasonal publication featuring peer-reviewed articles on public health initiatives and patient advocacy research.</div>
                     </div>
                 </div>
             </div>
@@ -746,7 +741,7 @@
             <img id="lightboxImg" src="" alt="">
             <div class="lightbox-info">
                 <h3 id="lightboxTitle"></h3>
-                <span id="lightboxCategory" class="category-tag"></span>
+                <p id="lightboxDescription" style="color: #666; margin-top: 0.5rem; font-size: 0.9rem;"></p>
             </div>
         </div>
     </div>
@@ -795,10 +790,10 @@
     }
 
     // Open lightbox
-    function openLightbox(img, title, category) {
+    function openLightbox(img, title, description) {
         document.getElementById('lightboxImg').src = img.src;
         document.getElementById('lightboxTitle').textContent = title;
-        document.getElementById('lightboxCategory').textContent = category;
+        document.getElementById('lightboxDescription').textContent = description;
         document.getElementById('lightbox').classList.add('active');
         document.body.style.overflow = 'hidden';
     }
