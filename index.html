@@ -5,23 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <style>
-        :root {
-            /* Light mode colors only */
-            --bg-color: white;
-            --text-color: #333;
-            --text-secondary: #444;
-            --text-tertiary: #666;
-            --glass-bg: rgba(0, 0, 0, 0.1);
-            --glass-border: rgba(0, 0, 0, 0.2);
-            --glass-hover: rgba(0, 0, 0, 0.2);
-            --glass-hover-strong: rgba(0, 0, 0, 0.3);
-            --glass-active: rgba(0, 0, 0, 0.4);
-            --timeline-line: rgba(0, 0, 0, 0.3);
-            --timeline-marker: rgba(0, 0, 0, 0.8);
-            --timeline-marker-border: rgba(0, 0, 0, 0.3);
-            --lightbox-bg: rgba(255, 255, 255, 0.9);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -31,10 +14,9 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background: var(--bg-color);
+            color: #333;
+            background: black;
             min-height: 100vh;
-            transition: all 0.3s ease;
         }
 
         .container {
@@ -45,15 +27,14 @@
 
         /* Navigation */
         nav {
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         nav .container {
@@ -62,17 +43,10 @@
             align-items: center;
         }
 
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--text-color);
-            transition: color 0.3s ease;
+            color: white;
         }
 
         .nav-links {
@@ -82,7 +56,7 @@
         }
 
         .nav-links a {
-            color: var(--text-color);
+            color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 25px;
@@ -91,7 +65,7 @@
         }
 
         .nav-links a:hover, .nav-links a.active {
-            background: var(--glass-hover);
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
 
@@ -110,7 +84,7 @@
         .hero {
             text-align: center;
             padding: 4rem 0;
-            color: var(--text-color);
+            color: white;
         }
 
         .hero h1 {
@@ -118,7 +92,6 @@
             margin-bottom: 1rem;
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
-            color: var(--text-color);
         }
 
         .hero p {
@@ -126,25 +99,24 @@
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
-            color: var(--text-color);
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--glass-hover);
-            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 50px;
             backdrop-filter: blur(10px);
-            border: 2px solid var(--glass-border);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
         }
 
         .cta-button:hover {
-            background: var(--glass-hover-strong);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
@@ -152,18 +124,13 @@
         /* Portfolio Page */
         .portfolio-header {
             text-align: center;
-            color: var(--text-color);
+            color: white;
             margin-bottom: 3rem;
         }
 
         .portfolio-header h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-
-        .portfolio-header p {
-            color: var(--text-color);
         }
 
         .filter-section {
@@ -175,9 +142,9 @@
         }
 
         .filter-btn {
-            background: var(--glass-hover);
-            color: var(--text-color);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
             cursor: pointer;
@@ -186,7 +153,7 @@
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: var(--glass-active);
+            background: rgba(255, 255, 255, 0.4);
             transform: translateY(-2px);
         }
 
@@ -198,11 +165,11 @@
         }
 
         .gallery-item {
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeInUp 0.6s ease forwards;
@@ -221,24 +188,18 @@
 
         .gallery-item-info {
             padding: 1rem;
-            color: var(--text-color);
-        }
-
-        .gallery-item-info h4 {
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
+            color: white;
         }
 
         .category-tag {
-            background: var(--glass-hover);
-            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
             display: inline-block;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
-            border: 1px solid var(--glass-border);
         }
 
         .lightbox {
@@ -248,7 +209,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--lightbox-bg);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 2000;
             justify-content: center;
             align-items: center;
@@ -264,9 +225,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(20px);
             padding: 20px;
         }
@@ -285,23 +246,19 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, var(--glass-bg));
-            color: var(--text-color);
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
             padding: 2rem;
             text-align: center;
-        }
-
-        .lightbox-info h3 {
-            color: var(--text-color);
         }
 
         .lightbox-close {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: var(--glass-hover);
-            color: var(--text-color);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -312,13 +269,13 @@
         }
 
         .lightbox-close:hover {
-            background: var(--glass-active);
+            background: rgba(255, 255, 255, 0.4);
         }
 
         /* Skills Section */
         .skills-section {
             padding: 4rem 0;
-            color: var(--text-color);
+            color: white;
         }
 
         .skills-section h2 {
@@ -327,7 +284,6 @@
             margin-bottom: 3rem;
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
-            color: var(--text-color);
         }
 
         .skills-grid {
@@ -337,11 +293,11 @@
         }
 
         .skill-category {
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2rem;
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
@@ -349,13 +305,13 @@
 
         .skill-category:hover {
             transform: translateY(-5px);
-            background: var(--glass-hover);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .skill-category h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .skills-list {
@@ -365,24 +321,24 @@
         }
 
         .skill-tag {
-            background: var(--glass-hover);
-            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
             padding: 0.4rem 0.8rem;
             border-radius: 15px;
             font-size: 0.85rem;
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
 
         .skill-tag:hover {
-            background: var(--glass-hover-strong);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
 
         /* Timeline Section */
         .timeline-section {
             padding: 4rem 0;
-            color: var(--text-color);
+            color: white;
         }
 
         .timeline-section h2 {
@@ -391,7 +347,6 @@
             margin-bottom: 3rem;
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
-            color: var(--text-color);
         }
 
         .timeline {
@@ -407,7 +362,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, var(--timeline-line), var(--glass-bg));
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
         }
 
         .timeline-item {
@@ -428,29 +383,29 @@
             top: 0;
             width: 18px;
             height: 18px;
-            background: var(--timeline-marker);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
-            border: 3px solid var(--timeline-marker-border);
+            border: 3px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
         }
 
         .timeline-content {
             margin-left: 70px;
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 2rem;
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
 
         .timeline-content:hover {
             transform: translateX(10px);
-            background: var(--glass-hover);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .timeline-date {
-            color: var(--text-tertiary);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
@@ -459,12 +414,12 @@
         .timeline-content h3 {
             font-size: 1.4rem;
             margin-bottom: 0.3rem;
-            color: var(--text-color);
+            color: white;
         }
 
         .timeline-content h4 {
             font-size: 1.1rem;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 1rem;
             font-weight: normal;
             font-style: italic;
@@ -472,13 +427,12 @@
 
         .timeline-content p {
             line-height: 1.6;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.9);
         }       
-
         /* Blank Page */
         .blank-content {
             text-align: center;
-            color: var(--text-color);
+            color: white;
             padding: 4rem 0;
         }
 
@@ -486,11 +440,6 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             opacity: 0.7;
-            color: var(--text-color);
-        }
-
-        .blank-content p {
-            color: var(--text-color);
         }
 
         /* Animations */
@@ -507,16 +456,16 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-left {
-                gap: 1rem;
-            }
-
             .nav-links {
                 gap: 1rem;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
+            }
+
+            .upload-controls {
+                flex-direction: column;
             }
 
             .filter-section {
@@ -554,13 +503,11 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="nav-left">
-                <div class="logo">ES</div>
-                <ul class="nav-links">
-                    <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
-                    <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
-                </ul>
-            </div>
+            <div class="logo">ES</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+                <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -825,3 +772,6 @@
         document.getElementById('lightbox').classList.remove('active');
         document.body.style.overflow = 'auto';
     }
+</script>
+</body>
+</html>
