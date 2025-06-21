@@ -222,20 +222,24 @@
 
         .lightbox-content {
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 95%;
+            max-height: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(20px);
         }
 
         .lightbox img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
             display: block;
+            margin: auto;
         }
 
         .lightbox-info {
@@ -367,17 +371,17 @@
                     </div>
                 </div>
                 <div class="gallery-item" data-category="Publications">
-                    <img src="Photos/Book.jpg" alt="Beyong Boundaries">
+                    <img src="Photos/Book.jpg" alt="Beyond Boundaries">
                     <div class="gallery-item-info">
                         <h4>Beyond Boundaries</h4>
                         <span class="category-tag">Publications</span>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="graphics">
-                    <img src="https://via.placeholder.com/400x250/f093fb/ffffff?text=Graphic+1" alt="Graphic Design 1">
+                    <img src="Photos/Campus.png" alt="Campus Map">
                     <div class="gallery-item-info">
-                        <h4>Brand Identity Design</h4>
-                        <span class="category-tag">Graphics</span>
+                        <h4>Campus Map</h4>
+                        <span class="category-tag">Cartography</span>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="web design">
