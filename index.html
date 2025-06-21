@@ -133,8 +133,6 @@
             margin-bottom: 1rem;
         }
 
-
-
         .filter-section {
             display: flex;
             gap: 1rem;
@@ -200,6 +198,8 @@
             border-radius: 15px;
             font-size: 0.8rem;
             display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .lightbox {
@@ -324,7 +324,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Elissa Steil</div>
+            <div class="logo">ES</div>
             <ul class="nav-links">
                 <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
                 <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
@@ -398,7 +398,7 @@
                     </div>
                 </div>
                 <div class="gallery-item" data-category="pubs,scill">
-                    <img src="Photos/cover.jpg" alt="Cover Art" onclick="openLightbox(this, 'Cover Art', 'Publications')">
+                    <img src="Photos/cover.jpg" alt="Cover Art" onclick="openLightbox(this, 'Cover Art', 'Publications, Scientific Illustration')">
                     <div class="gallery-item-info">
                         <h4>Cover Art</h4>
                         <span class="category-tag">Publications</span>
@@ -462,7 +462,7 @@
         event.target.classList.add('active');
     }
 
-    // Filter gallery by category
+    // Filter gallery by category - FIXED VERSION
     function filterGallery(category) {
         // Update active filter button
         document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -473,7 +473,10 @@
         // Filter gallery items
         const galleryItems = document.querySelectorAll('.gallery-item');
         galleryItems.forEach(item => {
-            if (category === 'all' || item.dataset.category === category) {
+            const itemCategories = item.dataset.category.split(',');
+            const shouldShow = category === 'all' || itemCategories.includes(category);
+            
+            if (shouldShow) {
                 item.style.display = 'block';
                 item.style.animation = 'none';
                 item.offsetHeight; // Trigger reflow
@@ -499,3 +502,5 @@
         document.body.style.overflow = 'auto';
     }
 </script>
+</body>
+</html>
