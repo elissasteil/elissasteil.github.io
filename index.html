@@ -185,7 +185,7 @@
         .gallery-item img {
             width: 100%;
             height: 250px;
-            object-fit: contain;
+            object-fit: fill;
         }
 
         .gallery-item-info {
@@ -202,6 +202,72 @@
             display: inline-block;
         }
 
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }       
         /* Blank Page */
         .blank-content {
             text-align: center;
@@ -294,7 +360,7 @@
             <div class="gallery" id="gallery">
                 <!-- Sample portfolio items -->
                 <div class="gallery-item" data-category="Cartography">
-                    <img src="Photos/Airport.png" alt="Airport Map">
+                    <img src="Photos/Airport.png" alt="Airport Map" onclick="openLightbox(this, 'Airport Map', 'Cartography')">>
                     <div class="gallery-item-info">
                         <h4>Airport Map</h4>
                         <span class="category-tag">Cartography</span>
@@ -349,43 +415,69 @@
         </div>
     </div>
 
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightboxImg" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <span id="lightboxCategory" class="category-tag"></span>
+            </div>
+        </div>
+    </div>
+    
     <script>
-        // Page navigation
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Update navigation
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
+    // Page navigation
+    function showPage(pageId) {
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        // Show selected page
+        document.getElementById(pageId).classList.add('active');
+        
+        // Update navigation
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    }
 
-        // Filter gallery by category
-        function filterGallery(category) {
-            // Update active filter button
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Filter gallery items
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            galleryItems.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'block';
-                    item.style.animation = 'none';
-                    item.offsetHeight; // Trigger reflow
-                    item.style.animation = 'fadeInUp 0.6s ease forwards';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    // Filter gallery by category
+    function filterGallery(category) {
+        // Update active filter button
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+        
+        // Filter gallery items
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            if (category === 'all' || item.dataset.category === category) {
+                item.style.display = 'block';
+                item.style.animation = 'none';
+                item.offsetHeight; // Trigger reflow
+                item.style.animation = 'fadeInUp 0.6s ease forwards';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    // Open lightbox
+    function openLightbox(img, title, category) {
+        document.getElementById('lightboxImg').src = img.src;
+        document.getElementById('lightboxTitle').textContent = title;
+        document.getElementById('lightboxCategory').textContent = category;
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+</script>
