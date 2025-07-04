@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elissa Steil</title>
+    <title>ES</title>
     <style>
         * {
             margin: 0;
@@ -476,6 +476,55 @@
             color: #666;
         }
 
+/* Multi-image navigation */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #e9ecef;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 1);
+            color: #007acc;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .lightbox-nav.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -537,7 +586,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Elissa Steil</div>
+            <div class="logo">ES</div>
             <ul class="nav-links">
                 <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
                 <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
@@ -729,6 +778,15 @@
                         <div class="gallery-item-description">Seasonal publication edited and formatted by me featuring articles on public health initiatives and patient advocacy research.</div>
                     </div>
                 </div>
+                <div class="gallery-item" data-category="dataviz,cart">
+                    <img src="Photos/Journal.png" alt="Wolf Infographic" onclick="openLightbox(this, 'Wolf Infographic', 'This infographic incorporates cartography and creative data visualization to educate on the threats to wolves. Made using ArcGIS Pro, Illustrator, and Photoshop.')">
+                    <img src="Photos/Railway.png" alt="Wolf Infographic Detail" style="display: none;">
+                    <img src="Photos/cover.jpg" alt="Wolf Infographic Process" style="display: none;">
+                    <div class="gallery-item-info">
+                        <h4>Wolf Infographic</h4>
+                        <div class="gallery-item-description">This infographic incorporates cartography and creative data visualization to educate on the threats to wolves. Made using ArcGIS Pro, Illustrator, and Photoshop.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -746,13 +804,16 @@
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <div class="lightbox-content" onclick="event.stopPropagation()">
             <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-nav lightbox-prev" onclick="previousImage()" id="prevBtn">‹</button>
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()" id="nextBtn">›</button>
             <img id="lightboxImg" src="" alt="">
+            <div class="image-counter" id="imageCounter">1 / 1</div>
             <div class="lightbox-info">
                 <h3 id="lightboxTitle"></h3>
                 <p id="lightboxDescription" style="color: #666; margin-top: 0.5rem; font-size: 0.9rem;"></p>
             </div>
-        </div>
-    </div>
+         </div>
+     </div>
     
     <script>
     // Page navigation
@@ -797,20 +858,91 @@
         });
     }
 
-    // Open lightbox
-    function openLightbox(img, title, description) {
-        document.getElementById('lightboxImg').src = img.src;
-        document.getElementById('lightboxTitle').textContent = title;
-        document.getElementById('lightboxDescription').textContent = description;
-        document.getElementById('lightbox').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+    // Multi-image lightbox variables
+let currentImages = [];
+let currentImageIndex = 0;
+let currentTitle = '';
+let currentDescription = '';
 
-    // Close lightbox
-    function closeLightbox() {
-        document.getElementById('lightbox').classList.remove('active');
-        document.body.style.overflow = 'auto';
+// Open lightbox with multiple images
+function openLightbox(img, title, description) {
+    // Check if the clicked element has multiple images
+    const galleryItem = img.closest('.gallery-item');
+    const allImages = galleryItem.querySelectorAll('img');
+    
+    currentImages = Array.from(allImages).map(image => image.src);
+    currentImageIndex = Array.from(allImages).indexOf(img);
+    currentTitle = title;
+    currentDescription = description;
+    
+    updateLightboxDisplay();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Update lightbox display
+function updateLightboxDisplay() {
+    document.getElementById('lightboxImg').src = currentImages[currentImageIndex];
+    document.getElementById('lightboxTitle').textContent = currentTitle;
+    document.getElementById('lightboxDescription').textContent = currentDescription;
+    
+    // Update counter
+    document.getElementById('imageCounter').textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+    
+    // Update navigation buttons
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (currentImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        document.getElementById('imageCounter').style.display = 'none';
+    } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        document.getElementById('imageCounter').style.display = 'block';
+        
+        prevBtn.classList.toggle('disabled', currentImageIndex === 0);
+        nextBtn.classList.toggle('disabled', currentImageIndex === currentImages.length - 1);
     }
+}
+
+// Navigate to previous image
+function previousImage() {
+    if (currentImageIndex > 0) {
+        currentImageIndex--;
+        updateLightboxDisplay();
+    }
+}
+
+// Navigate to next image
+function nextImage() {
+    if (currentImageIndex < currentImages.length - 1) {
+        currentImageIndex++;
+        updateLightboxDisplay();
+    }
+}
+
+// Close lightbox
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = 'auto';
+    currentImages = [];
+    currentImageIndex = 0;
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (document.getElementById('lightbox').classList.contains('active')) {
+        if (e.key === 'ArrowLeft') {
+            previousImage();
+        } else if (e.key === 'ArrowRight') {
+            nextImage();
+        } else if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    }
+});
 </script>
 </body>
 </html>
