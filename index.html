@@ -714,6 +714,7 @@
                 <button class="filter-btn" onclick="filterGallery('cart')">Cartography</button>
                 <button class="filter-btn" onclick="filterGallery('pubs')">Communication Design</button>
                 <button class="filter-btn" onclick="filterGallery('dataviz')">Data Visualization</button>
+                <button class="filter-btn" onclick="filterGallery('publication')">Publications</button>
             </div>
 
             <div class="gallery" id="gallery">
@@ -812,7 +813,14 @@
                     <div class="gallery-item-info">
                         <h4>Native Food Guide</h4>
                         <div class="gallery-item-description">This booklet was made during my time abroad in Australia. I researched the Aboriginal uses of native plants, then created the guide by sketching plein-air and formatting online. Made using traditional art methods, ArcGIS Online, and Canva.</div>
+                </div>
+                <div class="gallery-item" data-category="publication">
+                    <img src="Photos/Trash1.png" alt="Wolf Infographic" onclick="openLightbox(this, 'Science Activation Stories: Camp Young', 'I wrote this article to highlight an eClips outreach event. Published on <a href="https://science.nasa.gov/science-research/earth-science/globe-trotting-science-lands-in-chesapeake-with-nasa-eclips/"> NASA's webiste')">
+                    <div class="gallery-item-info">
+                        <h4>Science Activation Stories: Camp Young</h4>
+                        <div class="gallery-item-description">I wrote this article to highlight an eClips outreach event. Published on <a href="https://science.nasa.gov/science-research/earth-science/globe-trotting-science-lands-in-chesapeake-with-nasa-eclips/"> NASA's webiste</div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -973,3 +981,4 @@ document.addEventListener('keydown', function(e) {
 </script>
 </body>
 </html>
+
