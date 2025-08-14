@@ -712,9 +712,9 @@
                 <button class="filter-btn active" onclick="filterGallery('all')">All</button>
                 <button class="filter-btn" onclick="filterGallery('scill')">Scientific Illustration</button>
                 <button class="filter-btn" onclick="filterGallery('cart')">Cartography</button>
-                <button class="filter-btn" onclick="filterGallery('pubs')">Communication Design</button>
+                <button class="filter-btn" onclick="filterGallery('comm')">Communication Design</button>
                 <button class="filter-btn" onclick="filterGallery('dataviz')">Data Visualization</button>
-                <button class="filter-btn" onclick="filterGallery('publication')">Publications</button>
+                <button class="filter-btn" onclick="filterGallery('pubs')">Publications</button>
             </div>
 
             <div class="gallery" id="gallery">
@@ -732,7 +732,7 @@
                         <div class="gallery-item-description">This tesslation displays the distribution of airports across the globe. Made using ArcGIS Pro.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="pubs">
+                <div class="gallery-item" data-category="comm">
                     <img src="Photos/Book.jpg" alt="Beyond Boundaries" onclick="openLightbox(this, 'Beyond Boundaries', 'This is a book I edited and published with the National Library of Patient and Advocacy.')">
                     <div class="gallery-item-info">
                         <h4>Beyond Boundaries</h4>
@@ -760,7 +760,7 @@
                         <div class="gallery-item-description">Farm density map that displays two different quantitative approaches, I practiced cleaning and analyzing large datasets. Made using ArcGIS Pro.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="pubs,scill">
+                <div class="gallery-item" data-category="comm,scill">
                     <img src="Photos/cover.jpg" alt="Cover Art" onclick="openLightbox(this, 'Cover Art', 'This cover art was designed for publication with Cell Press. I was given a research article to illustrate in an engaging and interesting format.')">
                     <div class="gallery-item-info">
                         <h4>Cover Art</h4>
@@ -774,14 +774,14 @@
                         <div class="gallery-item-description">Transportation infrastructure visualization showing railway networks and their connections to urban centers. Made using ArcGIS Pro.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="pubs">
+                <div class="gallery-item" data-category="comm">
                     <img src="Photos/Journal.png" alt="Journal" onclick="openLightbox(this, 'Journal', 'Seasonal publication edited and formatted by me featuring articles on public health initiatives and patient advocacy research.<')">
                     <div class="gallery-item-info">
                         <h4>Journal</h4>
                         <div class="gallery-item-description">Seasonal publication edited and formatted by me featuring articles on public health initiatives and patient advocacy research.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="pubs">
+                <div class="gallery-item" data-category="comm">
                     <img src="Photos/Trash1.png" alt="Wolf Infographic" onclick="openLightbox(this, 'Trash Collection Brochure', 'This infographic incorporates cartography and creative communication to educate the public on utility changes. Made using ArcGIS Pro and Canva.')">
                     <img src="Photos/Trash2.png" alt="Wolf Infographic Detail" style="display: none;">
                     <div class="gallery-item-info">
@@ -789,7 +789,7 @@
                         <div class="gallery-item-description">This infographic incorporates cartography and creative communication to educate the public on utility changes. Made using ArcGIS Pro and Canva.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="pubs,scill">
+                <div class="gallery-item" data-category="comm,scill">
                     <img src="Photos/Booklet/1.png" alt="Booklet" onclick="openLightbox(this, 'Native Food Guide', 'This booklet was made during my time abroad in Australia. I researched the Aboriginal uses of native plants, then created the guide by sketching plein-air and formatting online. Made using traditional art methods, ArcGIS Online, and Canva.')">
                     <img src="Photos/Booklet/2.png" alt="Booklet" style="display: none;">
                     <img src="Photos/Booklet/3.png" alt="Booklet" style="display: none;">
@@ -813,14 +813,13 @@
                     <div class="gallery-item-info">
                         <h4>Native Food Guide</h4>
                         <div class="gallery-item-description">This booklet was made during my time abroad in Australia. I researched the Aboriginal uses of native plants, then created the guide by sketching plein-air and formatting online. Made using traditional art methods, ArcGIS Online, and Canva.</div>
-                </div>
-                <div class="gallery-item" data-category="publication">
-                    <img src="Photos/Trash1.png" alt="Wolf Infographic" onclick="openLightbox(this, 'Science Activation Stories: Camp Young', 'I wrote this article to highlight an eClips outreach event. Published on <a href="https://science.nasa.gov/science-research/earth-science/globe-trotting-science-lands-in-chesapeake-with-nasa-eclips/"> NASA's webiste')">
-                    <div class="gallery-item-info">
-                        <h4>Science Activation Stories: Camp Young</h4>
-                        <div class="gallery-item-description">I wrote this article to highlight an eClips outreach event. Published on <a href="https://science.nasa.gov/science-research/earth-science/globe-trotting-science-lands-in-chesapeake-with-nasa-eclips/"> NASA's webiste</div>
                     </div>
                 </div>
+                <div class="gallery-item" data-category="pubs">
+                    <img src="Photos/Trash1.png" alt="Science Activation Story" onclick="openLightbox(this, 'Science Activation Stories: Camp Young', 'I wrote this article to highlight an eClips outreach event. Published on <a href=\"https://science.nasa.gov/science-research/earth-science/globe-trotting-science-lands-in-chesapeake-with-nasa-eclips/\" target=\"_blank\">NASA\'s website</a>.')">
+                    <div class="gallery-item-info">
+                        <h4>Science Activation Stories: Camp Young</h4>
+                        <div class="gallery-item-description">I wrote this article to highlight an eClips outreach event. Published on <a href="https://science.nasa.gov/science-research/earth-science/globe-trotting-science-lands-in-chesapeake-with-nasa-eclips/" target="_blank">NASA's website</a>.</div>
                 </div>
             </div>
         </div>
@@ -981,4 +980,5 @@ document.addEventListener('keydown', function(e) {
 </script>
 </body>
 </html>
+
 
