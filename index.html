@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ES</title>
+    <title>Elissa Steil</title>
     <style>
         * {
             margin: 0;
@@ -600,7 +600,7 @@
     <div id="home" class="page active">
         <div class="container">
             <div class="hero">
-                <h1>Welcome to my SciComm Portfolio!</h1>
+                <h1>Welcome to my Portfolio!</h1>
                 <p>Senior at William & Mary studying Conservation and Geospatial Analytics.</p>
                 <a href="#" onclick="showPage('portfolio')" class="cta-button">View My Work</a>
             </div>
@@ -724,8 +724,8 @@
                 <button class="filter-btn" onclick="filterGallery('scill')">Scientific Illustration</button>
                 <button class="filter-btn" onclick="filterGallery('cart')">Cartography</button>
                 <button class="filter-btn" onclick="filterGallery('comm')">Communication Design</button>
-                <button class="filter-btn" onclick="filterGallery('social')">Social Media</button>
                 <button class="filter-btn" onclick="filterGallery('pubs')">Publications</button>
+                <button class="filter-btn" onclick="filterGallery('res')">Research</button>
             </div>
 
             <div class="gallery" id="gallery">
@@ -736,7 +736,17 @@
                         <div class="gallery-item-description">This inforgraphic incorporates cartography and create data visualization to educate on the threats to wolves. Made using ArcGIS Pro, Illustrator, and Photoshop.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="social">
+                <div class="gallery-item" data-category="cart,comm,pubs,res">
+                    <div style="width: 100%; height: 250px; overflow: hidden; position: relative; cursor: pointer;" onclick="window.open('https://storymaps.arcgis.com/stories/ae9f4a89291f4d519e8cb4cb6189d7f5', '_blank')">
+                        <iframe src="https://storymaps.arcgis.com/stories/ae9f4a89291f4d519e8cb4cb6189d7f5" width="100%" height="250px" frameborder="0" style="pointer-events: none;"></iframe>
+                        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0);"></div>
+                    </div>
+                    <div class="gallery-item-info">
+                        <h4>ArcGIS StoryMap</h4>
+                        <div class="gallery-item-description">Creating in my Remote Sensing course. Click to view the full story map in a new tab.</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="comm">
                     <img src="Photos/CohortConnect.png" alt="Cohort Connect" onclick="openLightbox(this, 'Cohort Connect', 'This is a social media post advertising a new school program. Made using Canva.')">
                     <div class="gallery-item-info">
                         <h4>Cohort Connect</h4>
@@ -764,14 +774,14 @@
                         <div class="gallery-item-description">This is a navigation map of a part of my college campus. Made using ArcGIS Pro.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="cart">
+                <div class="gallery-item" data-category="cart,res">
                     <img src="Photos/Cannabis.png" alt="Fake Habitat Suitability" onclick="openLightbox(this, 'Fake Habitat Suitability', 'This is a faux habitat suitability model, where I practiced advanced tools and graphic design principles. Made using ArcGIS Pro.')">
                     <div class="gallery-item-info">
                         <h4>Habitat Suitability</h4>
                         <div class="gallery-item-description">This is a faux habitat suitability model, where I practiced advanced tools and graphic design principles. Made using ArcGIS Pro.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="social">
+                <div class="gallery-item" data-category="comm">
                     <img src="Photos/SR1.png" alt="State Rollout Social Media Post" onclick="openLightbox(this, 'State Rollout Social Media Post', 'This is an educational social media post for the geoConvergence 2026 social media plan. Made using Canva.')">
                     <img src="Photos/SR2.png" alt="State Rollout Social Media Post" style="display: none;">
                     <img src="Photos/SR3.png" alt="State Rollout Social Media Post" style="display: none;">
@@ -856,7 +866,7 @@
                         <div class="gallery-item-description">I wrote this article to highlight an eClips and GLOBE outreach event. Published on <a href="https://science.nasa.gov/learning-resources/for-professionals/courses-curriculums/stem-educators-are-bringing-hands-on-nasa-science-into-virginia-classrooms/"> NASA's website</a>.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="social">
+                <div class="gallery-item" data-category="comm">
                     <img src="Photos/FallForScience.png" alt="Fall for Science Social Media Post" onclick="openLightbox(this, 'Fall for Science Social Media Post', 'This was made for a hypothetical program. Made using Canva.')">
                     <div class="gallery-item-info">
                         <h4>Fall for Science Social Media Post</h4>
@@ -884,7 +894,7 @@
                         <div class="gallery-item-description">I wrote this article to highlight an eClips and GLOBE outreach event. Published on <a href="https://science.nasa.gov/learning-resources/for-professionals/courses-curriculums/stem-educators-are-bringing-hands-on-nasa-science-into-virginia-classrooms/"> NASA's website</a>.</div>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="cart,comm,pubs">
+                <div class="gallery-item" data-category="cart,comm,pubs,res">
                     <div style="width: 100%; height: 250px; overflow: hidden; position: relative; cursor: pointer;" onclick="window.open('https://storymaps.arcgis.com/stories/b0d7ea59148545b2baea8d648d6af0c9', '_blank')">
                         <iframe src="https://storymaps.arcgis.com/stories/b0d7ea59148545b2baea8d648d6af0c9" width="100%" height="250px" frameborder="0" style="pointer-events: none;"></iframe>
                         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0);"></div>
@@ -892,16 +902,6 @@
                     <div class="gallery-item-info">
                         <h4>ArcGIS StoryMap</h4>
                         <div class="gallery-item-description">Creating in my introductory GIS course. Click to view the full story map in a new tab.</div>
-                    </div>
-                </div>
-                <div class="gallery-item" data-category="cart,comm,pubs">
-                    <div style="width: 100%; height: 250px; overflow: hidden; position: relative; cursor: pointer;" onclick="window.open('https://storymaps.arcgis.com/stories/ae9f4a89291f4d519e8cb4cb6189d7f5', '_blank')">
-                        <iframe src="https://storymaps.arcgis.com/stories/ae9f4a89291f4d519e8cb4cb6189d7f5" width="100%" height="250px" frameborder="0" style="pointer-events: none;"></iframe>
-                        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0);"></div>
-                    </div>
-                    <div class="gallery-item-info">
-                        <h4>ArcGIS StoryMap</h4>
-                        <div class="gallery-item-description">Creating in my Remote Sensing course. Click to view the full story map in a new tab.</div>
                     </div>
                 </div>
             </div>
@@ -1053,6 +1053,7 @@ document.addEventListener('keydown', function(e) {
 </script>
 </body>
 </html>
+
 
 
 
